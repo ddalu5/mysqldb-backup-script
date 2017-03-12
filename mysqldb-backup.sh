@@ -27,11 +27,11 @@ if [ $? -eq 0 ]; then
     if [ $? -eq 0 ]; then
         echo "[+] Database dumped"
         echo "[+] Archiving database dump"
-        tar -czvf $TMP_FOLDER$BACKUP_FILENAME".tar.gz" $TMP_FOLDER$BACKUP_FILENAME".sql"
+        gzip -c $TMP_FOLDER$BACKUP_FILENAME".sql" > $TMP_FOLDER$BACKUP_FILENAME".sql.gz"
         if [ $? -eq 0 ]; then
             echo "[+] Archive complete"
             echo "[+] Sending email"
-            mail --attach=$TMP_FOLDER$BACKUP_FILENAME".tar.gz" -s "Database $DB_NAME backup $YEAR-$MONTH-$DAY" $ADMIN_EMAIL < /dev/null
+            mail --attach=$TMP_FOLDER$BACKUP_FILENAME".sql.gz" -s "Database $DB_NAME backup $YEAR-$MONTH-$DAY" $ADMIN_EMAIL < /dev/null
             if [ $? -eq 0 ]; then
                 echo "[+] Email succesfully sent to $ADMIN_EMAIL"
             else
