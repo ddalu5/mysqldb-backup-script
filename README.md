@@ -1,5 +1,8 @@
 # mysqldb-backup-script
-A simple mysql script to backup a database and send it by email
+A simple shell script to backup a mysql database and send it by email
+
+## Requirements
+`mail` from `mailutils`
 
 ## How to use
 First you need to set your own configuration by changing those variables:
