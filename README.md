@@ -2,7 +2,7 @@
 A simple shell script to backup a mysql database and send it by email
 
 ## Requirements
-`mail` from `mailutils`
+`mail` from `mailutils` package Debian based distributions, and `mailx` on CentOS/Redhat
 
 ## How to use
 First you need to set your own configuration by changing those variables:
